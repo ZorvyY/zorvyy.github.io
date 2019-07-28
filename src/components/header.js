@@ -1,42 +1,42 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import styled from 'styled-components'
+import { Link } from "./Styled"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+const NavBox = styled.div`
+  width: 100%;
+  display: flex;
+  padding: 1em 0;
+`
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+const NavItem = styled.div`
+  width: 10ch;
+`
+
+const pages = [
+  {
+    name: 'Home',
+    link: '/',
+  },
+  {
+    name: 'About',
+    link: '/about',
+  },
+  {
+    name: 'Projects',
+    link: '/projects',
+  }
+]
+
+const NavBar = pages => {
+  return (
+    <NavBox>
+      {pages.map(page => {
+        return (
+          <NavItem key={page.name}><Link to={page.link}>{page.name}</Link></NavItem>
+        )
+      })}
+    </NavBox>
+  )
 }
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header
+export default () => NavBar(pages);
