@@ -1,6 +1,8 @@
 import React from "react"
 import styled from 'styled-components'
-import { Link } from "./Styled"
+import { useStaticQuery, graphql } from 'gatsby'
+
+import { Link, Anchor } from "./Styled"
 
 const NavBox = styled.div`
   width: 100%;
@@ -24,19 +26,33 @@ const pages = [
   {
     name: 'Projects',
     link: '/projects',
+  },
+  {
+    name: 'Resume',
+    link: '/resume.pdf',
+    external: 'true',
   }
 ]
 
-const NavBar = pages => {
+const NavBar = ({pages}) => {
   return (
     <NavBox>
       {pages.map(page => {
         return (
-          <NavItem key={page.name}><Link to={page.link}>{page.name}</Link></NavItem>
+          <NavItem key={page.name}>
+            {page.external ? 
+              <Anchor href={page.link}>{page.name}</Anchor> :
+              <Link to={page.link}>{page.name}</Link>
+            }
+          </NavItem>
         )
       })}
     </NavBox>
   )
 }
 
-export default () => NavBar(pages);
+const Header = styled.div`
+  margin-bottom: 1em;
+`
+
+export default () => <Header><NavBar pages={pages}/></Header>;

@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import Colors from "../constants/colors"
+import Colors from "../constants/Colors"
 
 import { Link as GatsbyLink } from "gatsby"
 export const Link = styled(GatsbyLink)`
@@ -9,7 +9,7 @@ export const Link = styled(GatsbyLink)`
   color: ${Colors.DarkGrey};
 
   :hover {
-    color: ${Colors.Accent};
+    color: ${() => `hsl(${360 * Math.random() | 0}, 100%, 50%)`};
   }
 `
 
@@ -18,6 +18,6 @@ export const Anchor = styled.a`
   color: ${Colors.DarkGrey};
 
   :hover {
-    color: ${Colors.Accent};
+    color: ${() => `hsl(${360 * Math.random() | 0}, 100%, 50%)`};
   }
 `

@@ -16,7 +16,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Roboto', 'Lato']
+          families: ['Roboto', 'Lato', 'Shadows Into Light Two', 'Bad Script', 'Just Another Hand']
         }
       }
     },
@@ -52,8 +52,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        name: `assets/images`,
+        path: `${__dirname}/src/assets/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `assets/documents`,
+        path: `${__dirname}/src/assets/documents`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -67,7 +74,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/logo-classic.png`, // This path is relative to the root of the site.
+        icon: `src/assets/images/logo-classic.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
