@@ -22,8 +22,6 @@ const ProjectItemBox = styled.div`
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
 `
 
-// const IconLinkTray = styled.div``
-
 const ProjectHeader = styled.div`
   display: flex;
   justify-content: space-between;
@@ -67,7 +65,6 @@ const ProjectsPage = ({ data }) => {
       <ProjectList>
         {repos.map(Project)}
       </ProjectList>
-      <Link to="/">Go back to the homepage</Link>
     </Layout>
   )
 }
