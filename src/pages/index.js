@@ -2,34 +2,39 @@ import React from "react"
 import styled from "styled-components"
 
 import Layout from "../components/layout"
-// import Image from "../components/image"
 import SEO from "../components/seo"
 import Fonts from "../constants/Fonts"
 
 const FancyText = styled.p`
-  font-family: ${Fonts.Handwritten};
   font-size: 1.3em;
   text-align: ${props => (props.align || 'left')}
 `
 
 const FancyTitle = styled.h1`
-  font-size: 4em;
-  font-family: ${Fonts.HandwrittenTitle};
-  text-align: ${props => (props.align || 'left')}
+  font: ${Fonts.HandwrittenTitle};
+  text-align: ${props => (props.align || 'left')};
+  text-transform: uppercase;
 `
 
-const ObnoxiousIntro = styled.div`
-  padding: 3em 0;
-`
+const ObnoxiousIntro = () => {
+  return (
+    <div css={`margin: 3em 0;`}>
+      <FancyText>Hi, I'm</FancyText>
+      <div css={`padding: 0 3em;`}>
+        <FancyTitle>
+          Zoravur <br/>
+          Singh
+        </FancyTitle>
+      </div>
+      <FancyText align='right'>and this is my website.</FancyText>
+    </div>
+  )
+}
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home | Zoravur Singh" />
-    <ObnoxiousIntro>
-      <FancyText>Hi, I'm</FancyText>
-      <FancyTitle align='center'>Zoravur Singh</FancyTitle>
-      <FancyText align='right'>and this is my website.</FancyText>
-    </ObnoxiousIntro>
+    <SEO title="Home" />
+    <ObnoxiousIntro />
   </Layout>
 )
 

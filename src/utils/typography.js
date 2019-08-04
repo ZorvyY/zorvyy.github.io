@@ -2,10 +2,28 @@ import Typography from 'typography'
 
 
 const theme = {
-  baseFontSize: '24px',
-  baseLineHeight: 1.45,
-  headerFontFamily: ['Roboto', 'sans-serif'],
-  bodyFontFamily: ['Lato', 'serif'],
+  baseFontSize: '21px',
+  baseLineHeight: 1.6,
+  headerFontFamily: ['Oswald', 'sans-serif'],
+  bodyFontFamily: ['Lato', 'sans-serif'],
+  overrideStyles: () => ({
+    h1: {
+      textTransform: 'uppercase',
+    },
+    h2: {
+      textTransform: 'uppercase',
+    },
+    h3: {
+      textTransform: 'uppercase',
+    },
+    h4: {
+      textTransform: 'uppercase',
+    },
+    a: {
+      color: 'inherit',
+    }
+
+  })
 }
 
 const typography = new Typography(theme)

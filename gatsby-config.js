@@ -4,9 +4,9 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Zoravur Singh`,
+    description: `CS student at University of Waterloo. Will code for free pizza.`,
+    author: `@zorvyy`,
   },
   plugins: [
     // **************** Styling ******************
@@ -16,7 +16,24 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Roboto', 'Lato', 'Shadows Into Light Two', 'Bad Script', 'Just Another Hand']
+          families: [
+            'Lato', 
+            'Roboto Slab', 
+            'Roboto', 
+            'Roboto Mono', 
+            "Montserrat:900", 
+            "Noto Sans", 
+            "Work Sans:800", 
+            "Hind", 
+            "Khula:800", 
+            "Biryani", 
+            "Martel Sans:900",
+            "Josefin Sans",
+            "Merriweather Sans",
+            "Maven Pro",
+            "Montserrat",
+            "Oswald",
+          ]
         }
       }
     },
@@ -52,15 +69,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `assets/images`,
-        path: `${__dirname}/src/assets/images`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `assets/documents`,
-        path: `${__dirname}/src/assets/documents`,
+        name: `assets`,
+        path: `${__dirname}/src/assets`,
       },
     },
     `gatsby-transformer-sharp`,

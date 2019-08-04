@@ -6,7 +6,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Anchor, Link } from "../components/Styled"
+import { IconLink } from "../components/Styled"
 import colors from "../constants/Colors";
 
 const ProjectList = styled.div`
@@ -33,7 +33,6 @@ const NameTitle = ({ name, owner }) => {
   return (
     <span>
       <span css={`color: ${colors.MediumGrey}`}>
-        {/* <Anchor css={`color: ${colors.MediumGrey}`} href={owner.url}>{owner.login}{` / `}</Anchor> */}
         {owner.login}{` / `}
       </span>
       <span css={`color: ${colors.Black}`}>{name}</span>
@@ -47,7 +46,7 @@ const Project = ({ owner, name, description, url}) => {
     <ProjectItemBox key={name}>
       <ProjectHeader>
         <NameTitle name={name} owner={owner} />
-        <Anchor href={url}><FontAwesomeIcon icon={faGithub}/></Anchor>
+        <IconLink to={url}><FontAwesomeIcon icon={faGithub}/></IconLink>
       </ProjectHeader>
       <p>{description}</p>
     </ProjectItemBox>
@@ -59,7 +58,7 @@ const ProjectsPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Projects | Zoravur Singh" />
+      <SEO title="Projects" />
       <h2>Projects</h2>
       <p>Here are some things that I've done.</p>
       <ProjectList>

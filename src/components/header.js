@@ -1,58 +1,39 @@
 import React from "react"
 import styled from 'styled-components'
-import { useStaticQuery, graphql } from 'gatsby'
+// import { useStaticQuery, graphql } from 'gatsby'
 
-import { Link, Anchor } from "./Styled"
+import Navigation from './Navigation'
+import Social from './Social'
+// import logoSrc from "../assets/icons/logo-lettering-bold.svg"
+// import Fonts from "../constants/Fonts"
 
-const NavBox = styled.div`
-  width: 100%;
+
+const HeaderSection = styled.div`
+  flex-grow: 1;
+  font-size: 1.2em;
+`
+
+const HeaderContainer = styled.div`
+  margin-bottom: 1em;
   display: flex;
+  justify-content: space-between;
   padding: 1em 0;
 `
 
-const NavItem = styled.div`
-  width: 10ch;
-`
-
-const pages = [
-  {
-    name: 'Home',
-    link: '/',
-  },
-  {
-    name: 'About',
-    link: '/about',
-  },
-  {
-    name: 'Projects',
-    link: '/projects',
-  },
-  {
-    name: 'Resume',
-    link: '/resume.pdf',
-    external: 'true',
-  }
-]
-
-const NavBar = ({pages}) => {
+const Header = () => {
   return (
-    <NavBox>
-      {pages.map(page => {
-        return (
-          <NavItem key={page.name}>
-            {page.external ? 
-              <Anchor href={page.link}>{page.name}</Anchor> :
-              <Link to={page.link}>{page.name}</Link>
-            }
-          </NavItem>
-        )
-      })}
-    </NavBox>
+    <HeaderContainer>
+      <HeaderSection width='80%'>
+        <Navigation />
+      </HeaderSection>
+      <HeaderSection width='20%'>
+        <Social />
+      </HeaderSection>
+    </HeaderContainer>
   )
 }
 
-const Header = styled.div`
-  margin-bottom: 1em;
-`
 
-export default () => <Header><NavBar pages={pages}/></Header>;
+
+
+export default Header;
